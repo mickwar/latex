@@ -1,0 +1,11 @@
+The "beamer_template/main.tex" file is meant to be a self-sufficient
+file that provides a minimalistic beamer theme. No other files
+required (excpect any packages that will be loaded).
+
+This was motivated in part by the sometimes confusing (for me) usage
+of existing beamer themes and not having the control I wanted. Also,
+I wanted to have more control of what was occurring. I prefer the
+simple and non-decorative apporach when it comes to slides. I feel
+the fluff often distracts from the presentation and makes for ugly
+slides filled with too much garbage. This "theme" is meant to be
+very simple.
