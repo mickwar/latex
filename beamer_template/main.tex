@@ -1,0 +1,80 @@
+\documentclass[mathserif, 11pt, t]{beamer}
+% the "t" option prevents beamer from vertically centering all the text automatically
+
+% Not all packages are required, some I just used frequently
+\let\Tiny=\tiny
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{bm}     
+\geometry{vmargin=0.5in} % adjusts the height of the color banner at the top
+
+% colors
+\definecolor{colora}{rgb}{0.05, 0.05, 0.90}
+\definecolor{colorb}{rgb}{0.05, 0.2, 0.6}
+% for aesthetics, colora and colorb should probably be related
+
+% define \ftitle{ } command
+\renewcommand{\ftitle}[1]{\vspace{0.45cm}\textcolor{colorb}{
+    {\textbf{#1}}}\vspace{0.15cm}\newline}
+
+% math mode command
+\newcommand{\m}[1]{\mathbf{\bm{#1}}}
+
+% slide colors
+\pagecolor{colora!70}
+% the !XX (from 0 to 100) changes the shade of the color at the top of the each slide
+
+\begin{document}
+
+%%% begin title frame
+\begin{center}
+\ \\ [-0.5in]
+\vfill
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{LARGE}
+\begin{center}
+Title
+\end{center}
+\end{LARGE}
+\vfill
+
+\begin{center}
+Name
+\end{center}
+\vfill
+Day Month Year
+\bigskip
+\bigskip
+\bigskip
+\vfill
+\ \\ [-0.5in]
+\end{center}
+%%% end title frame
+
+%%% first frame
+\begin{frame}
+\ftitle{Another title}
+\begin{itemize}[label={$\cdot$}]
+\item Item 1
+\item Item 2
+\end{itemize}
+\end{frame}
+
+%%% second frame
+\begin{frame}
+\ftitle{}
+Words and stuff
+\includegraphics[scale=0.5]{}
+\end{frame}
+
+\end{document}
