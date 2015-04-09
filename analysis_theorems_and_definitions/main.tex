@@ -1,0 +1,873 @@
+\documentclass[12pt]{report}
+
+\usepackage{graphicx,float,units,enumerate}
+
+\graphicspath{C:/Users/Mickey/Desktop/Downloads/School/2013 A Winter/MATH 341 - Theory of Analysis 1/}
+
+\setlength{\topmargin}{-.75in} 
+\setlength{\textheight}{9.1in}
+
+\newcommand{\x}{\times}
+\newcommand{\R}{\textbf{R}}
+\newcommand{\N}{\textbf{N}}
+\newcommand{\Q}{\textbf{Q}}
+\newcommand{\close}[1]{\overline{#1}}
+
+\begin{document}
+
+\chapter{The Real Numbers}
+
+\section{Discussion: The Irrationality of $\sqrt{2}$}
+
+\noindent \textbf{Theorem 1.1.1.} \textit{There is no rational number whose square is 2.}
+
+\section{Some Preliminaries}
+
+\subsection*{Sets}
+
+\subsection*{Functions}
+
+\noindent \textbf{Definition 1.2.3.} Given two sets $A$ and $B$, a \textit{function} from $A$ to $B$ is a rule or mapping that takes each element $x\in A$ and associates with it a single element of $B$.  In this case, we write $f:A\rightarrow B$. Given an element $x\in A$, the expression $f(x)$ is used to represent the element of $B$ associated with $x$ by $f$. The set $A$ is called the \textit{domain} of $f$. The \textit{range} of $f$ is not necessarily equal to $B$ but refers to the subset of $B$ given by $\{y\in B:y=f(x)$ for some $x\in A\}$.
+
+\subsection*{Logic and Proofs}
+
+\noindent \textbf{Theorem 1.2.6.} \textit{Two real numbers $a$ and $b$ are equal if and only if for every real number $\epsilon>0$ it follows that $|a-b|<\epsilon$.}
+
+\subsection*{Induction}
+
+\section{The Axiom of Completeness}
+
+\subsection*{An Initial Definition for R}
+
+\noindent \textbf{Axiom of Completeness.} \textit{Every nonempty set of real numbers that is bounded above has a least upper bound.}
+\bigskip
+
+\subsection*{Least Upper Bounds and Greatest Lower Bounds}
+
+\noindent \textbf{Definition 1.3.1.} A set $A\subseteq\R$ is \textit{bounded above} if there exists a number $b\in\R$ such that $a\leq b$ for all $a\in A$. The number $b$ is called an \textit{upper bound} for $A$.
+
+Similarly, the set $A$ is \textit{bounded below} if there exists a \textit{lower bound} $l\in\R$ satisfying $l\leq a$ for every $a\in A$.
+\bigskip
+
+\noindent \textbf{Definition 1.3.2.} A real number $s$ is the \textit{least upper bound} for a set $A\subseteq\R$ if it meets the following two criteria:
+
+\begin{enumerate}[(i)]
+\item $s$ is an upper bound for $A$;
+\item if $b$ is any upper bound for $A$, then $s\leq b$.
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Definition 1.3.4.} A real number $a_0$ is a \textit{maximum} of the set $A$ if $a_0$ is an element of $A$ and $a_0\geq a$ for all $a\in A$.  Similarly, a number $a_1$ is a \textit{minimum} of $A$ if $a_1\in A$ and $a_1\leq a$ for every $a\in A$.
+\bigskip
+
+\noindent \textbf{Lemma 1.3.7.} \textit{Assume $s\in\R$ is an upper bound for a set $A\subseteq\R$.  Then, $s=\sup A$ if and only if, for every choice of $\epsilon>0$, there exists an element $a\in A$ satisfying $s-\epsilon<a$.}
+\bigskip
+
+\section{Consequences of Completeness}
+
+\noindent \textbf{Theorem 1.4.1 (Nested Interval Property).} \textit{For each $n\in\N$, assume we are given a closed interval $I_n=[a_n,b_n]=\{x\in\R:a_n\leq x\leq b_n\}$.  Assume also that each $I_n$ contains $I_{n+1}$.  Then, the resulting nested sequence of closed intervals}
+
+\[I_1\supseteq I_2\supseteq I_3\supseteq I_4\supseteq \cdots\]
+
+\noindent \textit{has a nonempty intersection; that is, $\cap_{n=1}^\infty I_n\neq\emptyset$.}
+\bigskip
+
+\subsection*{The Density of Q in R}
+
+\noindent \textbf{Theorem 1.4.2 (Archimedean Property).} (i) \textit{Given any number $x\in\R$ there exists an $n\in\N$ satisfying $n>x$.}
+
+(ii) \textit{Given any real number $y>0$, there exists an $n\in\N$ satisfying $1/n<y$.}
+\bigskip
+
+\noindent \textbf{Theorem 1.4.3 (Density Q in R).} \textit{For every two real numbers $a$ and $b$ with $a<b$, there exists a rational number $r$ satisfying $a<r<b$.}
+\bigskip
+
+\noindent \textbf{Corollary 1.4.4.} \textit{Given any two real numbers $a<b$, there exists an irrational number $t$ satisfying $a<t<b$.}
+\bigskip
+
+\subsection*{The Existence of Square Roots}
+
+\noindent \textbf{Theorem 1.4.5.} \textit{There exists areal number $\alpha\in\R$ satisfying $\alpha^2=2$.}
+\bigskip
+
+\subsection*{Countable and Uncountable Sets}
+
+\subsubsection*{Cardinality}
+
+\noindent \textbf{Definition 1.4.6.} A function $f:A\rightarrow B$ is one-to-one (1-1) if $a_1\neq a_2$ in $A$ implies that $f(a_1)\neq f(a_2)$ in $B$.  The function $f$ is \textit{onto} if, given any $b\in B$, it is possible to find an element $a\in A$ for which $f(a)=b$.
+\bigskip
+
+\noindent \textbf{Definition 1.4.7.} Two sets $A$ and $B$ \textit{have the same cardinality} if there exists $f:A\rightarrow B$ that is 1-1 and onto.  In this case we write $A\sim B$.
+\bigskip
+
+\subsubsection*{Countable Sets}
+
+\noindent \textbf{Definition 1.4.10.} A set $A$ is \textit{countable} if $N\sim A$. An infinite set that is not countable is called an \textit{uncountable} set.
+\bigskip
+
+\noindent \textbf{Theorem 1.4.11.} (i) \textit{The set $\Q$ is countable.} (ii) \textit{The set $\R$ is uncountable.}
+\bigskip
+
+\noindent \textbf{Theorem 1.4.12.} \textit{If $A\subseteq B$ and $B$ is countable, then $A$ is either countable, finite, or empty.}
+\bigskip
+
+\noindent \textbf{Theorem 1.4.13.} (i) \textit{If $A_1,A_2,\cdots A_m$ are each countable sets, then the union $A_1\cup A_2\cup\cdots\cup A_m$ is countable.}
+\bigskip
+
+(ii) \textit{If $A_n$ is a countable set for each $n\in\N$, then $\bigcup_{n=1}^\infty A_n$ is countable.}
+\bigskip
+
+\section{Cantor's Theorem}
+
+\subsection*{Cantor's Diagonalization Method}
+
+\noindent \textbf{Theorem 1.5.1.} \textit{The open interval $(0,1)=\{x\in\R:0<x<1\}$ is uncountable.}
+\bigskip
+
+\subsection*{Power Sets and Cantor's Theorem}
+
+\noindent \textbf{Theorem 1.5.2 (Cantor's Theorem).} \textit{Given any set $A$, there does not exists a function $f:A\rightarrow P(A)$ that is onto.}
+\bigskip
+
+\chapter{Sequences and Series}
+\section{Discussion: Rearrangements of Infinite Series}
+\section{The Limit of a Sequence}
+
+\noindent \textbf{Definition 2.2.1} A \textit{sequence} is a function who domain is $\N$.
+\bigskip
+
+\noindent \textbf{Definition 2.2.3 (Convergence of a Sequence).} A sequence $(a_n)$ \textit{converges} to a real number $a$ if, for every positive number $\epsilon$, there exists an $N\in\N$ such that whenever $n\geq N$ it follows that $|a_n-a|<\epsilon$.
+\bigskip
+
+\noindent \textbf{Definition 2.2.4.} Given a real number $a\in\R$ and a positive number $\epsilon>0$, the set
+\[V_\epsilon(a)=\{x\in\R:|x-a|<\epsilon\}\]
+\noindent is called the \textit{$\epsilon$-neighborhood of $a$.}
+\bigskip
+
+\noindent \textbf{Definition 2.2.3B (Convergence of a Sequence: Topological Version).} A sequence $(a_n)$ converges to $a$ if, given any $\epsilon$-neighborhood $V_\epsilon(a)$ of $a$, there exists a point in the sequence after which all of the terms are in $V_\epsilon(a)$.  In other words, every $\epsilon$-neighborhood contains all but a finite number of the terms of $(a_n)$.
+\bigskip
+
+\subsection*{Quantifiers}
+\subsection*{Divergence}
+
+\noindent \textbf{Definition 2.2.8.} A sequence that does not converge is said to \textit{diverge}.
+\bigskip
+
+\section{The Algebraic and Order Limit Theorems}
+
+\noindent \textbf{Definition 2.3.1.} A sequence $(x_n)$ is \textit{bounded} if there exists a number $M>0$ such that $|x_n|\leq M$ for all $n\in\N$.
+\bigskip
+
+\noindent \textbf{Theorem 2.3.2.} \textit{Every convergent sequence is bounded.}
+\bigskip
+
+\noindent \textbf{Theorem 2.3.3 (Algebraic Limit Theorem).} \textit{Let $\lim a_n=a$, and $\lim b_n=b$.  Then,}
+
+\begin{enumerate}[(i)]
+\item \textit{$\lim(ca_n)=ca$, for all $c\in\R$;}
+\item \textit{$\lim(a_n+b_n)=a+b$;}
+\item \textit{$\lim(a_nb_n)=ab$;}
+\item \textit{$\lim(a_n/b_n)=a/b$, provided $b\neq 0$.}
+\end{enumerate}
+\bigskip
+
+\subsection*{Limits and Order}
+
+\noindent \textbf{Theorem 2.3.4 (Order Limit Theorem).} \textit{Assume $\lim a_n=a$ and $\lim b_n=b$.}
+
+\begin{enumerate}[(i)]
+\item \textit{If $a_n\geq 0$ for all $n\in\N$, then $a\geq 0$.}
+\item \textit{If $a_n\leq b_n$ for all $n\in\N$, then $a\leq b$.}
+\item \textit{If there exists $c\in\R$ for which $c\leq b_n$ for all $n\in\N$, then $c\leq b$.  Similarly, if $a_n\leq c$ for all $n\in\N$, then $a\leq c$.}
+\end{enumerate}
+\bigskip
+
+\section{The Monotone Convergence Theorem and a First Look at Infinite Series}
+
+\noindent \textbf{Definition 2.4.1.} A sequence $(a_n)$ is \textit{increasing} if $a_n\leq a_{n+1}$ for all $n\in\N$ and \textit{decreasing} if $a_n\geq a_{n+1}$ for all $n\in\N$.  A sequence is \textit{monotone} if it is either increasing or decreasing.
+\bigskip
+
+\noindent \textbf{Theorem 2.4.2 (Monotone Convergence Theorem).} \textit{If a sequence is monotone and bounded, then it converges.}
+\bigskip
+
+\noindent \textbf{Definition 2.4.3.} Let $(b_n)$ be a sequence.  An \textit{infinite series} is a formal expression of the form
+\[\sum_{n=1}^\infty b_n=b_1+b_2+b_3+b_4+b_5+\cdots \]
+\noindent We define the corresponding \textit{sequence of partial sums} $(s_m)$ by
+\[s_m=b_1+b_2+b_3+\cdots+b_m,\]
+\noindent and say that the series $\sum_{n=1}^\infty b_n$ \textit{converges to $B$} if the sequence $(s_m)$ converges to $B$.  In this case, we write $\sum_{n=1}^\infty b_n=B$.
+\bigskip
+
+\noindent \textbf{Theorem 2.4.6 (Cauchy Condensation Test).} \textit{Suppose $(b_n)$ is decreasing and satisfies $b_n\geq 0$ for all $n\in\N$.  Then, the series $\sum_{n=1}^\infty b_n$ converges if and only if the series}
+\[\sum_{n=0}^\infty 2^nb_{2n}=b_1+2b_2+4b_4+8b_8+16b_{16}+\cdots\]
+
+\noindent \textit{converges.}
+\bigskip
+
+\noindent \textbf{Corollary 2.4.7.} \textit{The series $\sum_{n=1}^\infty 1/n^p$ converges if and only if $p>1$.}
+\bigskip
+
+\section{Subsequences and the Bolzano-Weierstrass Theorem}
+
+\noindent \textbf{Definition 2.5.1.} Let $(a_n)$ be a sequence of real numbers, and let $n_1<n_2<n_3<n_4<n_5<\cdots$ be an increasing sequence of natural numbers.  Then the sequence
+\[a_{n_1},a_{n_2},a_{n_3},a_{n_4},a_{n_5},\cdots\]
+
+\noindent is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_j})$, where $j\in\N$ indexes the subsequence.
+\bigskip
+
+\noindent \textbf{Theorem 2.5.2.} \textit{Subsequences of a convergent sequence converge to the same limit as the originial sequence.}
+\bigskip
+
+\subsection*{The Bolzano-Weierstrass Theorem}
+
+\noindent \textbf{Theorem 2.5.5 (Bolzano-Weierstrass Theorem).} \textit{Every bounded sequence contains a convergent subsequence.}
+\bigskip
+
+\section{The Cauchy Criterion}
+
+\noindent \textbf{Definition 2.6.1.} A sequence $(a_n)$ is called a \textit{Cauchy sequence} if, for every $\epsilon>0$, there exists an $N\in\N$ such that whenever $m,n\geq N$ it follows that $|a_n-a_m|<\epsilon$.
+\bigskip
+
+\noindent \textbf{Theorem 2.6.2.} \textit{Every convergent sequence is a Cauchy sequence.}
+\bigskip
+
+\noindent \textbf{Lemma 2.6.3.} \textit{Cauchy sequences are bounded.}
+\bigskip
+
+\noindent \textbf{Theorem 2.6.4 (Cauchy Criterion).} \textit{A sequence converges if and only if it is a Cauchy sequence.}
+
+\subsection*{Completeness Revisited}
+
+\section{Properties of Infinite Series}
+
+\noindent \textbf{Theorem 2.7.1 (Algebraic Limit Theorem for Series).} \textit{If $\sum_{k=1}^\infty a_k=A$ and $\sum_{k=1}^\infty b_k=B$, then}
+
+\begin{enumerate}[(i)]
+\item \textit{$\sum_{k=1}^\infty ca_k=cA$ for all $c\in\R$ and}
+\item $\sum_{k=1}^\infty(a_k+b_k)=A+B$.
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Theorem 2.7.2 (Cauchy Criterion for Series).} \textit{The series $\sum_{k=1}^\infty a_k$ converges if and only if, given $\epsilon>0$, there exists an $N\in\N$ such that whenever $n>m\geq N$ it follows that}
+\[|a_{m+1}+a_{m+2}+\cdots+a_n|<\epsilon.\]
+\bigskip
+
+\noindent \textbf{Theorem 2.7.3.} \textit{If the series $\sum_{k=1}^\infty a_k$ converges, then $(a_k)\rightarrow 0$.}
+\bigskip
+
+\noindent \textbf{Theorem 2.7.4 (Comparison Test).} \textit{Assume $(a_k)$ and $(b_k)$ are sequences satisfying $0\leq a_k\leq b_k$ for all $k\in\N$.}
+
+\begin{enumerate}[(i)]
+\item \textit{If $\sum_{k=1}^\infty b_k$ converges, then $\sum_{k=1}^\infty a_k$ converges.}
+\item \textit{If $\sum_{k=1}^\infty a_k$ diverges, then $\sum_{k=1}^\infty b_k$ diverges.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Theorem 2.7.6 (Absolute Convergence Test).} \textit{If the series $\sum_{n=1}^\infty |a_n|$ converges, then $\sum_{n=1}^\infty a_n$ converges as well.}
+\bigskip
+
+\noindent \textbf{Theorem 2.7.7 (Alternating Series Test).} \textit{Let $(a_n)$ be a sequence satisfying,}
+
+\begin{enumerate}[(i)]
+\item $a_1\geq a_2\geq a_3\geq\cdots\geq a_n\geq a_{n+1}\geq\cdots$ \textit{and}
+\item $(a_n)\rightarrow 0.$
+\end{enumerate}
+
+\noindent \textit{Then, the alternating series $\sum_{n=1}^\infty(-1)^{n+1}a_n$ converges.}
+\bigskip
+
+\noindent \textbf{Definition 2.7.8.} If $\sum_{n=1}^\infty |a_n|$ converges, then we say that the original series $\sum_{n=1}^\infty a_n$ \textit{converges absolutely}.  If, on the other hand. the series $\sum_{n=1}^\infty a_n$ converges but the series of absolute values $\sum_{n=1}^\infty |a_n|$ does not converge, then we say that the original series $\sum_{n=1}^\infty a_n$ \textit{converges conditionally}.
+\bigskip
+
+\subsection*{Rearrangements}
+
+\noindent \textbf{Definition 2.7.9.} Let $\sum_{k=1}^\infty a_k$ be a series.  A series $\sum_{k=1}^\infty b_k$ is called a \textit{rearrangement} of $\sum_{k=1}^\infty a_k$ if there exists a one-to-one, onto function $f:\N\rightarrow\N$ such that $b_{f(k)}=a_k$ for all $k\in\N$.
+\bigskip
+
+\noindent \textbf{Theorem 2.7.10.} \textit{If $\sum_{k=1}^\infty a_k$ converges absolutely, then any rearrangement of this series converges to the same limit.}
+\bigskip
+
+\section{Double Summations and Products of Infinite Series}
+
+\noindent \textbf{Theorem 2.8.1.} \textit{Let $\{a_{ij}:i,j\in\N\}$ be a doubly indexed array of real numbers.  If}
+\[\sum_{i=1}^\infty\sum_{j=1}^\infty|a_{ij}|\]
+
+\noindent \textit{converges, then both $\sum_{i=1}^\infty\sum_{j=1}^\infty a_{ij}$ and $\sum_{j=1}^\infty\sum_{i=1}^\infty a_{ij}$ converge to the same value.  Moreover,}
+\[\lim_{n\rightarrow\infty} s_{nn}=\sum_{i=1}^\infty\sum_{j=1}^\infty a_{ij}=\sum_{j=1}^\infty\sum_{i=1}^\infty a_{ij},\]
+
+\noindent \textit{where $s_{nn}=\sum_{i=1}^n\sum_{j=1}^n a_{ij}$.}
+\bigskip
+
+\subsection*{Products of Series}
+
+\chapter{Basic Topology of R}
+\section{Discussion: The Cantor Set}
+\section{Open and Closed Sets}
+
+\noindent \textbf{Definition 3.2.1} A set $O\subseteq\R$ is \textit{open} if for all points $a\in O$ there exists an $\epsilon$-neighborhood $V_\epsilon(a)\subseteq O$.
+\bigskip
+
+\noindent \textbf{Theorem 3.2.3.} (i) \textit{The union of an arbitrary collection of open sets is open.} (ii) \textit{The intersection of a finite collection of open sets is open.}
+\bigskip
+
+\subsection*{Closed Sets}
+
+\noindent \textbf{Definition 3.2.4.} A point $x$ is a \textit{limit point} of a set $A$ if every $\epsilon$-neighborhood $V_\epsilon(x)$ of $x$ intersects the set $A$ in some point other than $x$.
+\bigskip
+
+\noindent \textbf{Theorem 3.2.5.} \textit{A point $x$ is a limit point of a set $A$ if and only if $x=\lim a_n$ for some sequence $(a_n)$ contained in $A$ satisfying $a_n\neq x$ for all $n\in\N$.}
+\bigskip
+
+\noindent \textbf{Definition 3.2.6.} A point $a\in A$ is an \textit{isolated point of $A$} if it is not a limit point of $A$.
+\bigskip
+
+\noindent \textbf{Definition 3.2.7.} A set $F\subseteq\R$ is \textit{closed} if it contains its limit points.
+\bigskip
+
+\noindent \textbf{Theorem 3.2.8.} \textit{A set $F\subseteq\R$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.}
+\bigskip
+
+\noindent \textbf{Theorem 3.2.10 (Density of Q in R).} \textit{Given any $y\in\R$, there exists a sequence of rational numbers that converges to $y$.}
+
+\section{Compact Sets}
+
+\noindent \textbf{Definition 3.3.1.} A set $K\subseteq\R$ is \textit{compact} if every sequence in $K$ has a subsequence that converges to a limit that is also in $K$.
+\bigskip
+
+\noindent \textbf{Definition 3.3.3.} A set $A\subseteq\R$ is \textit{bounded} if there exists $M>0$ such that $|a|\leq M$ for all $a\in A$.
+\bigskip
+
+\noindent \textbf{Theorem 3.3.4 (Heine-Borel Theorem).} \textit{A set $K\subseteq\R$ is compact if and only if it is closed and bounded.}
+\bigskip
+
+\noindent \textbf{Theorem 3.3.5.} \textit{If $K_1\supseteq K_2\supseteq K_3\supseteq K_4\supseteq\cdots$ is a nested sequence of nonempty compact sets, then the intersection $\cap_{n=1}^\infty K_n$ is not empty.}
+\bigskip
+
+\subsection*{Open Covers}
+
+\noindent \textbf{Definition 3.3.6.} Let $A\subseteq\R$.  An \textit{open cover} for $A$ is a (possibly infinite) collection of open sets $\{O_\lambda:\lambda\in\Lambda\}$ whose union contains the set $A$; that is, $A\subseteq\cup_{\lambda\in\Lambda}O_\lambda$.  Given an open cover for $A$, a \textit{finite subcover} is a finite subcollection of open sets from the original open cover whose union still manages to completely contain $A$.
+\bigskip
+
+\noindent \textbf{Theorem 3.3.8} \textit{Let $K$ be a subset of $\R$.  All of the following statements are equivalent in the sense that any one of them implies the two others:}
+
+\begin{enumerate}[(i)]
+\item \textit{$K$ is compact.}
+\item \textit{$K$ is closed and bounded.}
+\item \textit{Any open cover for $K$ has a finite subcover.}
+\end{enumerate}
+
+\section{Perfect Sets and Connected Sets}
+
+\subsection*{Perfect Sets}
+
+\noindent \textbf{Definition 3.4.1.}  A set $P\subseteq\R$ is \textit{perfect} if it is closed and contains no isolated points.
+\bigskip
+
+\noindent \textbf{Theorem 3.4.2.} \textit{The Cantor set is perfect}
+\bigskip
+
+\noindent \textbf{Theorem 3.4.3.} \textit{A nonempty perfect set is uncountable.}
+\bigskip
+
+\subsection*{Connected Sets}
+
+\noindent \textbf{Definition 3.4.4.}  Two nonempty sets $A,B\subseteq\R$ are \textit{separated} if $\close{A}\cap B$ and $A\cap\close{B}$ are both empty.  A set $E\subseteq\R$ is \textit{disconnected} if it can be written as $E=A\cup B$, where $A$ and $B$ are nonempty separated sets.
+
+A set that is not disconnected is called a \textit{connected} set.
+\bigskip
+
+\noindent \textbf{Theorem 3.4.6.}  \textit{A set $E\subseteq\R$ is connected if and only if, for all nonempty disjoint sets $A$ and $B$ satisfying $E=A\cup B$, there always exists a convergent sequence $(x_n)\rightarrow x$ with $(x_n)$ contained in one of $A$ or $B$, and $x$ an element of the other.}
+\bigskip
+
+\noindent \textbf{Theorem 3.4.7.} \textit{A set $E\subseteq\R$ is connected if and only if whenever $a<c<b$ with $a,b\in E$, it follows that $c\in E$ as well.}
+\bigskip
+
+\section{Baire's Theorem}
+
+\noindent \textbf{Definition 3.5.1.}  A set $A\subseteq\R$ is called an $F_\sigma$ \textit{set} if it can be written as the countable union of closed sets.  A set $B\subseteq\R$ is called a $G_\sigma$ \textit{set} if it can be written as the countable intersection of open sets.
+\bigskip
+
+\noindent \textbf{Theorem 3.5.2.} \textit{If $\{G_1,G_2,G_3,\cdots\}$ is a countable collection of dense, open sets, then the intersection $\bigcap_{n=1}^\infty G_n$ is not empty.}
+\bigskip
+
+\subsection*{Nowhere-Dense Sets}
+
+\noindent \textbf{Definition 3.5.3.}  A set $E$ is \textit{nowhere-dense} if $\close{E}$ contains no nonempty open intervals.
+\bigskip
+
+\noindent \textbf{Theorem 3.5.4 (Baire's Theorem).} \textit{The set of real numbers $\R$ cannot be written as the countable union of nowhere-dense sets.}
+\bigskip
+
+\chapter{Functional Limits and Continuity}
+
+\section{Discussion: Examples of Dirichlet and Thomae}
+
+\section{Functional Limits}
+
+\noindent \textbf{Definition 4.2.1.} Let $f:A\rightarrow\R$, and let $c$ be a limit point of the domain $A$.  We say that $\lim_{x\rightarrow c} f(x)=L$ provided that, for all $\epsilon>0$, there exists a $\delta>0$ such that whenever $0<|x-c|<\delta$ (and $x\in A$) it follows that $|f(x)-L|<\epsilon$.
+\bigskip
+
+\noindent \textbf{Definition 4.2.1B (Topological Version).}  Let $c$ be a limit point of the domain of $f:A\rightarrow\R$.  We say $\lim_{x\rightarrow c} f(x)=L$ provided that, for every $\epsilon$-neighborhood $V_\epsilon(L)$ of $L$, there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ with the property that for all $x\in V_\delta(c)$ different from $c$ (with $x\in A$) it follows that $f(x)\in V_\epsilon(L)$.
+\bigskip
+
+\subsection*{Sequential Criterion for Functional Limits}
+
+\noindent \textbf{Theorem 4.2.3 (Sequential Criterion for Functional Limits).} \textit{Given a function $f:A\rightarrow\R$ and a limit point $c$ of A, the following two statements are equivalent:}
+
+\begin{enumerate}[(i)]
+\item $\lim_{x\rightarrow c} f(x)=L$
+\item \textit{For all sequences $(x_n)\subseteq A$ satisfying $x_n\neq c$ and $(x_n)\rightarrow c$, it follows that $f(x_n)\rightarrow L$.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Corollary 4.2.4 (Algebraic Limit Theorem for Function Limits).} \textit{Let $f$ and $g$ be functions defined on a domain $A\subseteq\R$, and assume $\lim_{x\rightarrow c} f(x)=L$ and $\lim_{x\rightarrow c} g(x)=M$ for some limit point $c$ of A.  Then,}
+
+\begin{enumerate}[(i)]
+\item \textit{$\lim_{x\rightarrow c} kf(x)=kL$ for all $k\in\R$,}
+\item \textit{$\lim_{x\rightarrow c} [f(x)+g(x)]=L+M$,}
+\item \textit{$\lim_{x\rightarrow c} [f(x)g(x)]=LM$, and}
+\item \textit{$\lim_{x\rightarrow c} f(x)/g(x)=L/M$, provided $M\neq 0$.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Corollary 4.2.5 (Divergence Criterion for Functional Limits).} \textit{Let $f$ be a function defined on $A$, and let $c$ be a limit point of $A$.  If there exist two sequences $(x_n)$ and $(y_n)$ in $A$ with $x_n\neq c$ and $y_n\neq c$ and}
+\[\lim x_n=\lim y_n = c\ \ \ \ \ but\ \ \ \ \ \lim f(x_n)\neq\lim f(y_n),\]
+\noindent \textit{then we can conclude that the functional limit $\lim_{x\rightarrow c}f(c)$ does not exist.}
+\bigskip
+
+\section{Combinations of Continuous Functions}
+
+\noindent \textbf{Definition 4.3.1.}  A function $f:A\rightarrow\R$ is \textit{continuous at a point $c\in A$} if, for all $\epsilon>0$, there exists a $\delta>0$ such that whenever $|x-c|<\delta$ (and $x\in A$) it follows that $|f(x)-f(c)|<\epsilon$.
+
+If $f$ is continuous at every point in the domain $A$, then we say that $f$ \textit{is continuous on $A$}.
+\bigskip
+
+\noindent \textbf{Theorem 4.3.2 (Characterizations of Continuity).} \textit{Let $f:A\rightarrow\R$, and let $x\in A$ be a limit point of $A$.  The function $f$ is continuous at $c$ if and only if any one of the following conditions is met:}
+
+\begin{enumerate}[(i)]
+\item \textit{For all $\epsilon>0$, there exists a $\delta>0$ such that $|x-c|<\delta$ (and $x\in A$) implies $|f(x)-f(c)|<\epsilon$;}
+\item $\lim_{x\rightarrow c}f(x)=f(c)$;
+\item \textit{For all $V_\epsilon(f(c))$, there exists a $V_\delta(c)$ with the property that $x\in V_\delta(c)$ (and $x\in A$) implies $f(x)\in V_\epsilon(f(c))$;}
+\item \textit{If $(x_n)\rightarrow c$ (with $x_n\in A$), then $f(x_n)\rightarrow f(c)$.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Corollary 4.3.3 (Criterion for Discontinuity).} \textit{Let $f:A\rightarrow\R$, and let $c\in A$ be a limit point of $A$.  If there exists a sequence $(x_n)\subseteq A$ where $(x_n)\rightarrow c$ but such that $f(x_n)$ does not converge to $f(c)$, we may conclude that $f$ is not continuous at $c$.}
+\bigskip
+
+\noindent \textbf{Theorem 4.3.4 (Algebraic Continuity Theorem).} \textit{Assume $f:A\rightarrow\R$ and $g:A\rightarrow\R$ are continuous at a point $c\in A$.  Then,}
+
+\begin{enumerate}[(i)]
+\item \textit{$kf(x)$ is continuous at $c$ for all $k\in\R$;}
+\item \textit{$f(x)+g(x)$ is continuous at $c$;}
+\item \textit{$f(x)g(x)$ is continuous at $c$; and}
+\item \textit{$f(x)/g(x)$ is continuous at $c$, provided the quotient is defined.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Theorem 4.3.9 (Composition of Continuous Functions).} \textit{Given $f:A\rightarrow\R$ and $g:B\rightarrow\R$, assume that the range $f(A)=\{f(x):x\in A\}$ is contained in the domain $B$ so that the composition $g\circ f(x)=g(f(x))$ is well-defined on $A$.}
+
+\textit{If $f$ is continuous at $c\in A$, and if $g$ is continuous at $f(c)\in B$, then $g\circ f$ is continuous at $c$.}
+\bigskip
+
+\section{Continuous Functions on Compact Sets}
+
+\noindent \textbf{Definition 4.4.1.} Given a function $f:A\rightarrow\R$ and a subset $B\subseteq A$, let $f(B)$ represent the range of $f$ over the set $B$; that is, $f(B)=\{f(x):x\in B\}$.  We say $f$ is \textit{bounded} if $f(A)$ is bounded in the sense of Definition 2.3.1.  Fro a given subset $B\subseteq A$, we say $f$ is \textit{bounded on $B$} if $f(B)$ is bounded.
+\bigskip
+
+\noindent \textbf{Theorem 4.4.2 (Preservation of Compact Sets).} \textit{Let $f:A\rightarrow\R$ be continuous on $A$.  If $K\subseteq A$ is compact, then $f(K)$ is compact as well.}
+\bigskip
+
+\noindent \textbf{Theorem 4.4.3 (Extreme Value Theorem).} \textit{If $f:K\rightarrow\R$ is continuous on a compact set $K\subseteq\R$, then $f$ attains a maximum and minimum value.  In other words, there exists $x_0,x_1\in K$ such that $f(x_0)\leq f(x)\leq f(x_1)$ for all $x\in K$.}
+\bigskip
+
+\subsection*{Uniform Continuity}
+
+\noindent \textbf{Definition 4.4.5.} A function $f:A\rightarrow\R$ is \textit{uniformly continuous on $A$} if for every $\epsilon>0$ there exists a $\delta>0$ such that $|x-y|<\delta$ implies $|f(x)-f(y)|<\epsilon$.
+\bigskip
+
+\noindent \textbf{Theorem 4.4.6 (Sequential Criterion for Nonuniform Continuity).} \textit{A function $f:A\rightarrow\R$ fails to be uniformly continuous on $A$ is there exists a particular $\epsilon_0>0$ and two sequences $(x_n)$ and $(y_n)$ in $A$ satisfying}
+\[|x_n-y_n)\rightarrow 0\ \ \ \ \ but\ \ \ \ \ |f(x_n)-f(y_n)|\geq\epsilon_0.\]
+\bigskip
+
+\noindent \textbf{Theorem 4.4.8.} \textit{A function that is continuous on a compact set $K$ is uniformly continuous on $K$.}
+\bigskip
+
+\section{The Intermediate Value Theorem}
+
+\noindent \textbf{Theorem 4.5.1 (Intermediate Value Theorem).} \textit{If $f:[a,b]\rightarrow\R$ is continuous, and if $L$ is a real number satisfying $f(a)<L<f(b)$ or $f(a)>L>f(b)$, then there exists a point $c\in(a,b)$ where $f(c)=L$.}
+\bigskip
+
+\subsection*{Preservation of Connected Sets}
+
+\noindent \textbf{Theorem 4.5.2 (Preservation of Connectedness).} \textit{Let $f:A\rightarrow\R$ be continuous.  If $E\subseteq A$ is connected, then $f(E)$ is connected as well.}
+\bigskip
+
+\subsection*{Completeness}
+
+\bigskip
+
+\subsection*{The Intermediate Value Property}
+
+\noindent \textbf{Definition 4.5.3.} A function $f$ has the \textit{intermediate value property} on an interval $[a,b]$ if for all $x<y$ in $[a,b]$ and all $L$ between $f(x)$ and $f(y)$, it is always possible to find a point $c\in(x,y)$ where $f(c)=L$.
+\bigskip
+
+\section{Sets of Discontinuity}
+
+\subsection*{Monotone Functions}
+
+\noindent \textbf{Definition 4.6.1.} A function $f:A\rightarrow\R$ is \textit{increasing on $A$} if $f(x)\leq f(y)$ whenever $x<y$ and \textit{decreasing} if $f(x)\geq f(y)$ whenever $x<y$ in $A$.  A \textit{monotone} function is one that is either increasing or decreasing.
+\bigskip
+
+\noindent \textbf{Definition 4.6.2 (Right-hand limit).} Given a limit point $c$ of a set $A$ and a function $f:A\rightarrow\R$, we write
+
+\[\lim_{x\rightarrow c^+}f(x)=L\]
+
+\noindent if for all $\epsilon>0$ there exists a $\delta>0$ such that $|f(x)-L|<\epsilon$ whenever $0<x-c<\delta$.
+
+Equivalently, in terms of sequences, $\lim_{x\rightarrow c^+}f(x)=L$ if $\lim f(x_n)=L$ for all sequences $(x_n)$ satisfying $x_n>c$ and $\lim(x_n)=c$.
+\bigskip
+
+\noindent \textbf{Theorem 4.6.3.} \textit{Given $f:A\rightarrow\R$ and a limit point $c$ of $A$, $\lim_{x\rightarrow c}f(x)=L$ if and only if}
+
+\[\lim_{x\rightarrow c^+}f(x)=L\ \ \ \ \ and\ \ \ \ \ \lim_{x\rightarrow c^-}f(x)=L.\]
+\bigskip
+
+\subsection*{$D_f$ for an Arbitrary Function}
+
+\noindent \textbf{Definition 4.6.4.} A set that can be written as the countable union of closed sets is in the class $F_\sigma$.
+\bigskip
+
+\noindent \textbf{Definition 4.6.5.} Let $f$ be defined on $\R$, and let $\alpha>0$.  The function $f$ is \textit{$\alpha$-continuous at $x\in\R$} if there exists a $\delta>0$ such that for all $y,z\in(x-\delta,x+\delta)$ it follows that $|f(y)-f(z)|<\alpha$.
+\bigskip
+
+\noindent \textbf{Theorem 4.6.6.} \textit{Let $f:\R\rightarrow\R$ be an arbitrary function.  Then, $D_f$ is an $F_\sigma$ set.}
+\bigskip
+
+\chapter{The Derivative}
+
+\section{Discussion: Are Derivatives Continuous?}
+
+\section{Derivatives and the Intermediate Value Property}
+
+\noindent \textbf{Definition 5.2.1.} Let $g:A\rightarrow\R$ be a function defined on an interval $A$.  Given $c\in A$, the \textit{derivative of $g$ at $c$} is defined by
+
+\[g'(c)=\lim_{x\rightarrow c}\frac{g(x)-g(c)}{x-c},\]
+
+\noindent provided this limit exists.  If $g'$ exists for all points $c\in A$, we say that \textit{$g$ is differentiable on $A$.}
+\bigskip
+
+\noindent \textbf{Theorem 5.2.3.} \textit{If $g:A\rightarrow\R$ is differentiable at a point $c\in A$, then $g$ is continuous at $c$ as well.}
+\bigskip
+
+\subsection*{Combinations of Differentiable Functions}
+
+\noindent \textbf{Theorem 5.2.4.} \textit{Let $f$ and $g$ be functions defined on an interval $A$, and assume both are differentiable at some point $c\in A$.  Then,}
+
+\begin{enumerate}[(i)]
+\item $(f+g)'(c)=f'(c)+g'(c)$,
+\item \textit{$(kf)'(c)=kf'(c)$, for all $k\in\R$,}
+\item \textit{$(fg)'(c)=f'(c)g(c)+f(c)g'(c)$, and}
+\item \textit{$(f/g)'(c)=\frac{g(c)f'(c)-f(c)g'(c)}{[g(c)]^2}$, provided that $g(c)\neq 0$.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Theorem 5.2.5 (Chain Rule).} \textit{Let $f:A\rightarrow\R$ and $g:B\rightarrow\R$ satisfy $f(A)\subseteq B$ so that the composition $g\circ f$ is well-defined. If $f$ is differentiable at $c\in A$ and if $g$ is differentiable at $f(c)\in B$, then $g\circ f$ is differentiable at $c$ with $(g\circ f)'(c)=g'(f(c))\cdot f'(c)$.}
+\bigskip
+
+\subsection*{Darboux's Theorem}
+
+\noindent \textbf{Theorem 5.2.6 (Interior Extremum Theorem).} \textit{Let $f$ be differentiable on an open interval $(a,b)$. If $f$ attains a maximum value at some point $c\in(a,b)$ (i.e., $f(c)\geq f(x)$ for all $x\in(a,b)$), then $f'(c)=0$.  The same is true if $f(c)$ is a minimum value.}
+\bigskip
+
+\noindent \textbf{Theorem 5.2.7 (Darboux's Theorem).} \textit{If $f$ is differentiable on an interval $[a,b]$, and if $\alpha$ satisfies $f'(a)<\alpha<f'(b)$ (or $f'(a)>\alpha>f'(b)$), then there exists a point $c\in(a,b)$ where $f'(c)=\alpha$.}
+
+\section{The Mean Value Theorem}
+
+\noindent \textbf{Theorem 5.3.1 (Rolle's Theorem).} \textit{Let $f:[a,b]\rightarrow\R$ be continuous on $[a,b]$ and differentiable on $(a,b)$.  If $f(a)=f(b)$, then there exists a point $c\in(a,b)$ where $f'(c)=0$.}
+\bigskip
+
+\noindent \textbf{Theorem 5.3.2 (Mean Value Theorem).} \textit{If $f:[a,b]\rightarrow\R$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists a point $c\in(a,b)$ where}
+\[f'(c)=\frac{f(b)-f(a)}{b-a}.\]
+\bigskip
+
+\noindent \textbf{Corollary 5.3.3.} \textit{If $g:A\rightarrow\R$ is differentiable on an interval $A$ and satisfies $g'(x)=0$ for all $x\in A$, then $g(x)=k$ for some constant $k\in\R$.}
+\bigskip
+
+\noindent \textbf{Corollary 5.3.4.} \textit{If $f$ and $g$ are differentiable functions on an interval $A$ and satisfy $f'(x)=g'(x)$ for all $x\in A$, then $f(x)=g(x)+k$ for some constant $k\in\R$.}
+\bigskip
+
+\noindent \textbf{Theorem 5.3.5 (Generalized Mean Value Theorem).} \textit{If $f$ and $g$ are continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there exists a point $c\in(a,b)$ where}
+\[[f(b)-f(a)]g'(c)=[g(b)-g(a)]f'(c).\]
+
+\noindent \textit{If $g'$ is never zero on $(a,b)$, then the conclusion can be stated as}
+\[\frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)}.\]
+
+\subsection*{L'Hospital's Rules}
+
+\noindent \textbf{Theorem 5.3.6 (L'Hospital's Rule: 0/0 case).} \textit{Assume $f$ and $g$ are continuous functions defined on an interval containing $a$, and assume that $f$ and $g$ are differentiable on this interval, with the possible exception of the point $a$.  If $f(a)=0$ and $g(a)=0$, then}
+
+\[\lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}=L\ \ \ \ \ implies\ \ \ \ \ \lim_{x\rightarrow a}\frac{f(x)}{g(x)}=L.\]
+\bigskip
+
+\noindent \textbf{Definition 5.3.7.} Given $g:A\rightarrow\R$ and a limit point $c$ of $A$, we say that $\lim_{x\rightarrow c}g(x)=\infty$ if, for every $M>0$, there exists a $\delta>0$ such that whenever $0<|x-c|<\delta$ it follows that $g(x)\geq M$.
+
+We can define $\lim_{x\rightarrow c}g(x)=-\infty$ in a similar way.
+\bigskip
+
+\noindent \textbf{Theorem 5.3.8 (L'Hospital's Rule: $\infty/\infty$ case).} \textit{Assume $f$ and $g$ are differentiable on $(a,b)$, and that $\lim_{x\rightarrow a}g(x)=\infty$ (or $-\infty$). Then}
+
+\[\lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}=L\ \ \ \ \ implies\ \ \ \ \ \lim_{x\rightarrow a}\frac{f(x)}{g(x)}=L.\]
+\bigskip
+
+\section{A Continuous Nowhere-Differentiable Function}
+\subsection*{Infinite Series of Functions and Continuity}
+\subsection*{Nondifferentiability}
+
+\chapter{Sequences and Series of Functions}
+\section{Discussion: Branching Processes}
+
+\section{Uniform Convergence of a Sequence of Functions}
+\subsection*{Pointwise Convergence}
+
+\noindent \textbf{Definition 6.2.1.} For each $n\in\N$, let $f_n$ be a function defined on a set $A\subseteq\R$. The sequence $(f_n)$ of functions \textit{converges pointwise on $A$} to a function $f:A\rightarrow\R$ if, for all $x\in A$, the sequence of real numbers $f_n(x)$ converges to $f(x)$.
+
+In this case, we write $f_n\rightarrow f$, $\lim f_n=f$, or $\lim_{n\rightarrow\infty}f_n(x)=f(x)$. This last expression is helpful if there is any confusion as to whether $x$ or $n$ is the limiting variable.
+\bigskip
+
+\subsection*{Continuity of the Limit Function}
+
+\subsection*{Uniform Convergence}
+
+\noindent \textbf{Definition 6.2.3.} Let $f_n$ be a sequence of functions defined on a set $A\subseteq\R$.  Then, $(f_n)$ \textit{converges uniformly on $A$} to a limit function $f$ defined on $A$ if, for every $\epsilon>0$, there exists an $N\in\N$ such that $|f_n(x)-f(x)|<\epsilon$ whenever $n\geq\N$ and $x\in A$.
+\bigskip
+
+\noindent \textbf{Definition 6.2.1B.} Let $f_n$ be a sequence of functions defined on a set $A\subseteq\R$. Then $(f_n)$ \textit{converges pointwise on $A$} to a limit $f$ defined on $A$ if, for every $\epsilon>0$ and $x\in A$, there exists an $N\in\N$ (perhaps dependent on $x$) such that $|f_n(x)-f(x)|<\epsilon$ whenever $n\geq\N$.
+\bigskip
+
+\subsection*{Cauchy Criterion}
+
+\noindent \textbf{Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence).} \textit{A sequence of functions $(f_n)$ defined on a set $A\subseteq\R$ converges uniformly on $A$ if and only if for every $\epsilon>0$ there exists an $N\in\N$ such that $|f_n(x)-f_m(x)|<\epsilon$ for all $m,n\leq N$ and all $x\in A$.}
+\bigskip
+
+\subsection*{Continuity Revisited}
+
+\noindent \textbf{Theorem 6.2.6.} \textit{Let $(f_n)$ be a sequence of functions defined on $A\subseteq\R$ that converges uniformly on $A$ to a function $f$. If each $f_n$ is continuous at $c\in A$ then $f$ is continuous at $c$.}
+\bigskip
+
+\section{Uniform Convergence and Differentiation}
+
+\noindent \textbf{Theorem 6.3.1.} \textit{Let $f_n\rightarrow f$ pointwise on the closed interval $[a,b]$, and assume that each $f_n$ is differentiable.  If $(f_n')$ converges uniformly on $[a,b]$ to a function $g$, then the function $f$ is differentiable and $f'=g$.}
+\bigskip
+
+\noindent \textbf{Theorem 6.3.2.} \textit{Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a,b]$, and assume $(f_n')$ converges uniformly on $[a,b]$.  If there exists a point $x_0\in[a,b]$ where $f_n(x_0)$ is convergent, then $(f_n)$ converges uniformly on $[a,b]$.}
+\bigskip
+
+\noindent \textbf{Theorem 6.3.3.} \textit{Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a,b]$, and assume $(f_n')$ converges uniformly to a function $g$ on $[a,b]$.  If there exists a point $x_0\in[a,b]$ for which $f_n(x_0)$ is convergent, then $(f_n)$ converges uniformly.  Moreover, the limit function $f=\lim f_n$ is differentiable and satisfies $f'=g$.}
+\bigskip
+
+\section{Series of Functions}
+
+\noindent \textbf{Definition 6.4.1.} For each $n\in\N$, let $f_n$ and $f$ be functions defined on a set $A\subseteq\R$. The infinite series
+\[\sum_{n=1}^\infty f_n(x)=f_1(x)+f_2(x)+f_3(x)+\cdots\]
+
+\noindent \textit{converges pointwise on $A$} to $f(x)$ if the sequence $s_k(x)$ of partial sums defined by
+\[s_k(x)=f_1(x)+f_2(x)+\cdots+f_k(x)\]
+
+\noindent converges pointwise to $f(x)$. The series \textit{converges uniformly on $A$} to $f$ if the sequence $s_k(x)$ converges uniformly on $A$ to $f(x)$.
+
+In either case, we write $f=\sum_{n=1}^\infty f_n$ or $f(x)=\sum_{n=1}^\infty f_n(x)$, always being explicit about the type of convergence involved.
+\bigskip
+
+\noindent \textbf{Theorem 6.4.2.} \textit{Let $f_n$ be continuous functions defined on a set $A\subseteq\R$, and assume $\sum_{n=1}^\infty f_n$ converges uniformly on $A$ to a function $f$. Then, $f$ is continuous on $A$.}
+\bigskip
+
+\noindent \textbf{Theorem 6.4.3.} \textit{Let $f_n$ be differentiable functions defined on an interval $[a,b]$, and assume $\sum_{n=1}^\infty f_n'(x)$ converges uniformly to a limit $g(x)$ on $A$. If there exists a point $x_0\in[a,b]$ where $\sum_{n=1}^\infty f_n(x_0)$ converges, then the series $\sum_{n=1}^\infty f_n(x)$ converges uniformly to a differentiable function $f(x)$ satisfying $f'(x)=g(x)$ on $[a,b]$. In other words,}
+\[f(x)=\sum_{n=1}^\infty f_n(x)\ \ \ \ \ and\ \ \ \ \ f'(x)=\sum_{n=1}^\infty f_n'(x).\]
+\bigskip
+
+\noindent \textbf{Theorem 6.4.4 (Cauchy Criterion for Uniform Convergence of Series).} \textit{A series $\sum_{n=1}^\infty f_n$ converges uniformly on $A\subseteq\R$ if and only if for every $\epsilon>0$ there exists an $N\in\N$ such that for all $n>m\geq N$,}
+\[|f_{m+1}(x)+f_{m+2}(x)+f_{m+3}(x)+\cdots+f_n(x)|<\epsilon\]
+
+\noindent \textit{for all $x\in A$.}
+\bigskip
+
+\noindent \textbf{Corollary 6.4.5 (Weierstrass M-Test).} \textit{For each $n\in\N$, let $f_n$ be a function defined on a set $A\subseteq\R$, and let $M_n>0$ be a real number satisfying}
+\[|f_n(x)|\leq M_n\]
+
+\noindent \textit{for all $x\in A$. If $\sum_{n=1}^\infty M_n$ converges, then $\sum_{n=1}^\infty f_n$ converges uniformly on $A$.}
+\bigskip
+
+\section{Power Series}
+
+\noindent \textbf{Theorem 6.5.1.} \textit{If a power series $\sum_{n=0}^\infty a_nx^n$ converges at some point $x_0\in\R$, then it converges absolutely for any $x$ satisfying $|x|<|x_0|$.}
+\bigskip
+
+\subsection*{Establishing Uniform Convergence}
+
+\noindent \textbf{Theorem 6.5.2.} \textit{If a power series $\sum_{n=0}^\infty a_nx^n$ converges absolutely at a point $x_0$, then it converges uniformly on the closed interval $[-c,c]$, where $c=|x_0|$.}
+\bigskip
+
+\subsection*{Abel's Theorem}
+
+\noindent \textbf{Lemma 6.5.3 (Abel's Lemma).} \textit{Let $b_n$ satisfy $b_1\geq b_2\geq b_3\geq\cdots\geq 0$, and let $\sum_{n=1}^\infty a_n$ be a series for which the partial sums are bounded.  In other words, assume there exists $A>0$ such that}
+\[|a_1+a_2+\cdots a_n|\leq A\]
+
+\noindent \textit{for all $n\in\N$.  Then, for all $n\in\N$,}
+\[|a_1b_1+a_2b_2+a_3b_3+\cdots+a_nb_n|\leq 2Ab_1.\]
+\bigskip
+
+\noindent \textbf{Theorem 6.5.4 (Abel's Theorem).} \textit{Let $g(x)=\sum_{n=0}^\infty a_nx^n$ be a power series that converges at the point $x=R>0$.  Then the series converges uniformly on the interval $[0,R]$. A similar result holds if the series converges at $x=-R$.}
+\bigskip
+
+\subsection*{The Success of Power Series}
+
+\noindent \textbf{Theorem 6.5.5.} \textit{If a power series converges pointwise on the set $A\subseteq\R$, then it converges uniformly on any compact set $K\subseteq A$.}
+\bigskip
+
+\noindent \textbf{Theorem 6.5.6.} \textit{If $\sum_{n=0}^\infty a_nx^n$ converges for all $x\in(-R,R)$, then the differentiated series $\sum_{n=1}^\infty na_nx^{n-1}$ converges at each $x\in(-R,R)$ as well.  Consequently, the convergence is uniform on compact sets contained in $(-R,R)$.}
+\bigskip
+
+\noindent \textbf{Theorem 6.5.7.} \textit{Assume}
+\[g(x)=\sum_{n=0}^\infty a_nx^n\]
+
+\noindent \textit{converges on an interval $A\subseteq\R$.  The function $g$ is continuous on $A$ and differentiable on any open interval $(-R,R)\subseteq A$.  The derivative is given by}
+\[g'(x)=\sum_{n=1}^\infty na_nx^{n-1}.\]
+
+\noindent \textit{Moreover, $g$ is infinitely differentiable on $(-R,R)$, and the successive derivatives can be obtained via term-by-term differentiation of the appropriate series.}
+\bigskip
+
+\section{Taylor Series}
+
+\subsection*{Manipulating Series}
+
+\subsection*{Taylor's Formula for the Coefficients}
+
+\subsection*{Lagrange's Remainder Theorem}
+
+\noindent \textbf{Theorem 6.6.1 (Lagrange's Remainder Theorem).} \textit{Let $f$ be infinitely differentiable on $(-R,R)$, define $a_n=f^{(n)}(0)/n!$, and let}
+\[S_N=a_0+a_1x+a_2x^2+\cdots+a_Nx^N.\]
+
+\noindent \textit{Given $x\neq 0$, there exists a point $c$ satisfying $|c|<|x|$ where the error function $E_N(x)=f(x)-S_N(x)$ satisfies}
+\[E_N(x)=\frac{f^{(N+1)}(c)}{(N+1)!}x^{N+1}.\]
+\bigskip
+
+\subsection*{A Counterexample}
+
+\section{Epilogue}
+
+\chapter{The Riemann Integral}
+
+\section{Discussion: How Should Integration be Defined?}
+
+\section{The Definition of the Riemann Integral}
+
+\subsection*{Partitions, Upper Sums, and Lower Sums}
+
+\noindent \textbf{Definition 7.2.1.} A \textit{partition $P$} of $[a,b]$ is a finite, ordered set
+\[P=\{a=x_0<x_1<x_2<\cdots<x_n=b\}.\]
+
+\noindent For each subinterval $[x_{k-1},x_k]$ of $P$, let
+\[m_k=\inf\{f(x):x\in[x_{k-1},x_k]\}\ \ \ \ \mathrm{and}\ \ \ \ M_k=\sup\{f(x):x\in[x_{k-1},x_k]\}.\]
+
+\noindent The \textit{lower sum} of $f$ with respect to $P$ is given by
+\[L(f,P)=\sum_{k=1}^nm_k(x_k-x_{k-1}).\]
+
+\noindent Likewise, we define the \textit{upper sum} of $f$ with respect to $P$ by
+\[U(f,P)=\sum_{k=1}^nM_k(x_k-x_{k-1}).\]
+\bigskip
+
+\noindent \textbf{Definition 7.2.2} A partition $Q$ is a \textit{refinement} of a partition $P$ if $Q$ contains all of the points of $P$.  In this case, we write $P\subseteq Q$.
+\bigskip
+
+\noindent \textbf{Lemma 7.2.3.} \textit{If $P\subseteq Q$, then $L(f,P)\leq L(f,Q)$, and $U(f,P)\geq U(f,Q)$.}
+\bigskip
+
+\noindent \textbf{Lemma 7.2.4.} \textit{If $P_1$ and $P_2$ are any two partitions of $[a,b]$, then $L(f,P_1)\leq U(f,P_2)$.}
+\bigskip
+
+\subsection*{Integrability}
+
+\noindent \textbf{Definition 7.2.5} Let $\mathcal{P}$ be the collection of all possible partitions of the interval $[a,b]$.  The \textit{upper integral} of $f$ is defined to be
+\[U(f)=\inf\{U(f,P):P\in\mathcal{P}\}.\]
+
+\noindent In a similar way, define the \textit{lower integral} of $f$ by
+\[L(f)=\sup\{U(f,P):P\in\mathcal{P}\}.\]
+\bigskip
+
+\noindent \textbf{Lemma 7.2.6.} \textit{For any bounded function $f$ on $[a,b]$, it is always the case that $U(f)\geq L(f)$.}
+\bigskip
+
+\noindent \textbf{Definition 7.2.7 (Riemann Integrability).} A bounded function $f$ defined on the interval $[a,b]$ is \textit{Riemann-integrable} if $U(f)=L(f)$.  In this case, we define $\int_a^b f$ or $\int_a^b f(x)$ to be this common value; namely,
+\[\int_a^bf=U(f)=L(f).\]
+\bigskip
+
+\subsection*{Criteria for Integrability}
+
+\noindent \textbf{Theorem 7.2.8.} \textit{A bounded function $f$ is integrable on $[a,b]$ if and only if, for every $\epsilon>0$, there exists a partition $P_\epsilon$ such that}
+\[U(f,P_\epsilon)-L(f,P_\epsilon)<\epsilon.\]
+\bigskip
+
+\noindent \textbf{Theorem 7.2.9.} \textit{If $f$ is continuous on $[a,b]$, then it is integrable.}
+\bigskip
+
+\section{Integrating Functions with Discontinuities}
+
+\noindent \textbf{Theorem 7.3.2.} \textit{If $f:[a,b]\rightarrow\R$ is bounded, and $f$ is integrable on $[c,b]$ for all $c\in(a,b)$, then $f$ is integrable on $[a,b]$.  An analogous result holds at the other endpoint.}
+\bigskip
+
+\section{Properties of the Integral}
+
+\noindent \textbf{Theorem 7.4.1.} \textit{Assume $f:[a,b]\rightarrow\R$ is bounded, and let $c\in(a,b)$.  Then, $f$ is integrable on $[a,b]$ if and only if $f$ is integrable on $[a,c]$ and $[c,b]$.  In this case, we have}
+\[\int_a^bf=\int_a^cf+\int_c^bf.\]
+\bigskip
+
+\noindent \textbf{Theorem 7.4.2.} \textit{Assume $f$ and $g$ are integrable functions on the interval $[a,b]$.}
+
+\begin{enumerate}[(i)]
+\item \textit{The function $f+g$ is integrable on $[a,b]$ with $\int_a^b(f+g)=\int_a^bf+\int_a^bg$.}
+\item \textit{For $k\in\R$, the function $kf$ is integrable with $\int_a^bkf=k\int_a^bf.$}
+\item \textit{If $m\leq f\leq M$, then $m(b-a)\leq \int_a^bf\leq M(b-a)$.}
+\item \textit{If $f\leq g$, then $\int_a^bf\leq\int_a^bg$.}
+\item \textit{The function $|f|$ is integrable and $|\int_a^bf|\leq\int_a^b|f|$.}
+\end{enumerate}
+\bigskip
+
+\noindent \textbf{Definition 7.4.3.} If $f$ is integrable on the interval $[a,b]$, define
+\[\int_b^af=-\int_a^bf.\]
+
+\noindent Also, define
+\[\int_c^cf=0.\]
+\bigskip
+
+\subsection*{Uniform Convergence and Integration}
+
+\noindent \textbf{Thoemre 7.4.4.} \textit{Assume that $f_n\rightarrow f$ uniformly on $[a,b]$ and that each $f_n$ is integrable.  Then, $f$ is integrable and}
+\[\lim_{n\rightarrow\infty}\int_a^bf_n=\int_a^bf.\]
+\bigskip
+
+\section{The Fundamental Theorem of Calculus}
+
+\noindent \textbf{Theorem 7.5.1 (Fundamental Theorem of Calculus).} (i) \textit{If $f:[a,b]\rightarrow\R$ is integrable, and $F:[a,b]\rightarrow\R$ satisfies $F'(x)=f(x)$ for all $x\in[a,b]$, then}
+\[\int_a^bf=F(b)-F(a).\]
+
+(ii) \textit{Let $g:[a,b]\rightarrow\R$ be integrable, and define}
+\[G(x)=\int_a^xg\]
+
+\noindent \textit{for all $x\in[a,b]$.  Then, $G$ is continuous on $[a,b]$.  If $g$ is continuous at some point $c\in[a,b]$, then $G$ is differentiable at $c$ and $G'(c)=g(c)$.}
+\bigskip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
