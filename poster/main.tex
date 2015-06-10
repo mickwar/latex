@@ -1,0 +1,240 @@
+\documentclass[final]{beamer}
+\mode<presentation>{\usetheme{I6pd2}}
+% additional settings
+\setbeamerfont{itemize}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+
+% additional packages
+%\usepackage{times}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{exscale}
+\usepackage{bm}
+\usepackage{graphicx}
+
+% width fixes the caption width of every figure
+%\usepackage[font=footnotesize, width=45cm]{caption}
+% margin fixes the margins, so the width can still vary
+\usepackage[font=footnotesize, margin=5.5cm]{caption}
+\usepackage[font=footnotesize, margin=1.0cm]{subcaption}
+
+\usepackage{booktabs, array}
+\usepackage{hhline}
+%\usepackage{rotating} %sideways environment
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[orientation=landscape,size=custom,width=200,height=120,scale=2.0]{beamerposter}
+\listfiles
+\graphicspath{{figs/}}
+% Display a grid to help align images
+\beamertemplategridbackground[1cm]
+
+% use serif math font (like in article)
+\usefonttheme[onlymath]{serif}
+
+\newcommand{\m}[1]{\mathbf{\bm{#1}}}
+
+\title{Gaussian Process Modeling of Modern Mass Spectrometry Computer Experimental Data}
+\author{Mickey Warner, C. Shane Reese}
+\institute{Brigham Young University}
+
+\begin{document}
+
+\begin{frame}{}
+\begin{columns}[t]
+
+%%%%% Left Column
+\begin{column}{.28\linewidth}
+    %%%%% Abstract
+    \begin{block}{Abstract}
+    In physical chemistry, variable electron and neutral density attachment mass spectrometry (VENDAMS)
+    is a new approach to measuring chemical reaction rate constants. Such reactions may be very complex,
+    consisting of a set of many differential equations; computer models have been developed to simultaneously
+    solve the equations. We use Gaussian process modeling to combine the field experimental and computer
+    experimental output. As the VENDAMS data are measures of relative abundance, we use a logit
+    transformation to preserve the normalized count constraints.
+    \end{block}
+
+    %%%%% Intro - Description of the data
+    \begin{block}{Introduction}
+
+    \begin{sc}Mass Spectrometry\end{sc}
+
+    $\bullet$ Sample of charged particles sent through meter long tube
+
+    $\bullet$ Particles undergo chemical reactions, separation occurs
+
+    $\bullet$ Mass spectrometer measures the amount of each separated anion
+
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \begin{sc}Field Trials\end{sc}
+
+    $\bullet$ Measurements are made on relative abundances of anions
+
+    $\bullet$ Bounded between 0 and 1
+
+    $\bullet$ Responses sum to 1
+
+    $\bullet$ Recorded at several initial electron concentrations
+    
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \begin{figure}
+        \includegraphics[scale=1]{dataplot2.pdf}
+        \caption*{Anions $Br^-$ (blue), $F^-$ (red), and $CF_3^-$ (green). Black dots (connected by thick solid lines) indicate field measurements. Thin lines represent output from the computer simulator.}
+    \end{figure}
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+
+    \begin{sc}Computer Simulations\end{sc}
+
+    $\bullet$ Solves for relative abundances given ``known'' rate constants
+
+    $\bullet$ Inexpensive to perform simulations
+
+    $\bullet$ Deterministic (always returns the same answer for the same input)
+
+    \end{block}
+\end{column}
+
+%%%%% Middle Column
+\begin{column}{.40\linewidth}
+    %%%%% Gaussian Processes
+    \begin{block}{Gaussian Processes}
+    A Gaussian process (GP) is collection of random variables, any finite number of which have joint Gaussian distributions. They require a mean function $m(\m{x})$ and covariance function $k(\m{x},\m{x}')$
+
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \begin{figure}
+        \begin{subfigure}{0.40\textwidth}
+            \centering
+            \includegraphics[scale=1.1]{gp_prior.pdf}
+%           \caption*{Random draws from a prior Gaussian process.}
+        \end{subfigure}%
+        \begin{subfigure}{0.40\textwidth}
+            \centering
+            \includegraphics[scale=1.1]{gp_data.pdf}
+%           \caption*{A Gaussian process conditioned on observed data (noise free).}
+        \end{subfigure}
+%       \caption*{This Gaussian process has mean function $m(x_i) = 0.5$ and covariance function $k(x_i,x_j)=\exp(-(x_i-x_j)^2/2l^2)$, for all $i$ and $j$.}
+    \end{figure}
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+
+    Gaussian processes are:
+
+    $\bullet$ Highly flexible in modeling random functions
+
+    $\bullet$ Suited well for high dimensional designs
+
+    $\bullet$ Great at interpolation of untested design points
+
+    \end{block}
+
+
+    %%%%% Statistical Model
+    \begin{block}{Statistical Model}
+
+    The relative abundances of observation $i$, at electron concentration $\m{x}_i$ and calibrated simulator inputs $\m{\theta}$, are modeled by
+    \smallskip
+    \[ y_i = \eta(\m{x}_i, \m{\theta}) + \delta(\m{x}_i) + \epsilon(\m{x}_i) \]
+    \bigskip
+
+    where $\eta(\cdot)$ is the computer simulator output, $\delta(\cdot)$ is the difference between field trails and the simulations, and $\epsilon(\cdot)$ is an error term. Independent zero-mean Gaussian processes are used to model $\eta$ and $\delta$. We use the product covariance function having power exponential form
+    \bigskip
+    \[ \mathrm{Cov}((\m{x},\m{t}),(\m{x}',\m{t}')) = \frac{1}{\lambda} \prod_{k=1}^{p_x} \rho_{\eta k} ^{4(x_k-x_k')^2}\times \prod_{k=1}^{p_t}(\rho_{\eta,p_x+k})^{4(t_k-t_k')^2} \]
+    \bigskip
+
+    The pair $(\m{x}, \m{t})$ are scaled to the unit hypercube $[0,1]^{p_x+p_t}$; $\m{t}$ represents simulator inputs (chemical reaction rates), used to estimate the calibrated inputs $\m{\theta}$.
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+
+    The parameter $\lambda$ is spatial precision and $\m{\rho}$ controls the dependence strength of the component directions.
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+
+    Model parameters are estimated using the Metropolis-Hastings algorithm.
+
+    \end{block}
+\end{column}
+
+%%%%% Right Column
+\begin{column}{.28\linewidth}
+    %%%%% Results -- predictions
+    \begin{block}{Prediction Results}
+
+    \begin{figure}
+        \centering
+        \includegraphics[scale=1.11]{combine.pdf}
+        \caption*{Left: predictions from the simulator. Center: discrepancy between reality and the simulator. Right: calibrated model predictions (includes simulator and discrepancy term). Solid lines are means, dotted lines are 95\% interval bounds, and solid black dots are field trials.}
+    \end{figure}
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+
+    $\bullet$ Simulator does well at emulating the physical process
+
+    $\bullet$ Most contributory reactions are accounted for in the simulator
+
+    $\bullet$ The statistical model is validated
+    
+    \end{block}
+
+    %%%%% Results -- inputs
+    \begin{block}{Chemical Reaction Results}
+
+    \begin{figure}
+        \begin{subfigure}{0.44\textwidth}
+            \centering
+            \includegraphics[scale=1.25]{boxplot.pdf}
+            \caption*{Input sensitivity for both principal components}
+        \end{subfigure}%
+        \begin{subfigure}{0.49\textwidth}
+            \centering
+            \includegraphics[scale=1.15]{matrix.pdf}
+            \caption*{Univariate and bivariate plots for the first five inputs}
+        \end{subfigure}
+    \end{figure}
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \smallskip
+
+    $\bullet$ There are 9 chemical reaction rates estimated in this example
+
+    $\bullet$ In the box plot, values away from 0 and 1 signify sensitive simulator inputs to the output
+
+    $\bullet$ Inputs 5, 8, and 9 contribute most to the model
+
+    $\bullet$ Inputs 1, 4, and 6 have slight effects
+
+    $\bullet$ The histograms show the marginal posterior distributions for $\theta_1,\cdots,\theta_5$
+
+    $\bullet$ The off-diagonals in the right figure are of joint posterior distributions.
+
+    \end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+\end{document}
