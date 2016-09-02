@@ -1,80 +1,64 @@
 \documentclass[mathserif, 11pt, t]{beamer}
-% the "t" option prevents beamer from vertically centering all the text automatically
 
-% Not all packages are required, some I just used frequently
-\let\Tiny=\tiny
-\usepackage{xcolor}
-\usepackage{pdfpages}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{enumitem}
-\usepackage{natbib}
-\usepackage{amsmath}
-\usepackage{bm}     
-\geometry{vmargin=0.5in} % adjusts the height of the color banner at the top
-
-% colors
-\definecolor{colora}{rgb}{0.05, 0.05, 0.90}
-\definecolor{colorb}{rgb}{0.05, 0.2, 0.6}
-% for aesthetics, colora and colorb should probably be related
-
-% define \ftitle{ } command
-\renewcommand{\ftitle}[1]{\vspace{0.45cm}\textcolor{colorb}{
-    {\textbf{#1}}}\vspace{0.15cm}\newline}
-
-% math mode command
-\newcommand{\m}[1]{\mathbf{\bm{#1}}}
-
-% slide colors
-\pagecolor{colora!70}
-% the !XX (from 0 to 100) changes the shade of the color at the top of the each slide
+\input{beamer_setup.tex}
 
 \begin{document}
 
-%%% begin title frame
-\begin{center}
-\ \\ [-0.5in]
-\vfill
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-\begin{LARGE}
-\begin{center}
-Title
-\end{center}
-\end{LARGE}
-\vfill
-
-\begin{center}
-Name
-\end{center}
-\vfill
-Day Month Year
-\bigskip
-\bigskip
-\bigskip
-\vfill
-\ \\ [-0.5in]
-\end{center}
-%%% end title frame
+\titlepage{Title}{Authors}{Date}{Organization}
 
 %%% first frame
-\begin{frame}
-\ftitle{Another title}
+\begin{frame}{itemized list}
 \begin{itemize}[label={$\cdot$}]
-\item Item 1
-\item Item 2
+\item Item 1 dotted
+\item Item 2 dotted
 \end{itemize}
+\bigskip
+
+\begin{itemize}
+\item Item 1 not dotted
+\item Item 2 not dotted
+\end{itemize}
+
 \end{frame}
 
-%%% second frame
-\begin{frame}
-\ftitle{}
-Words and stuff
+%%% figure
+\begin{frame}{figure}
+\begin{minipage}{1.00\textwidth}
+\begin{center}
 \includegraphics[scale=0.5]{}
+\end{center}
+Words words and words
+\end{minipage}
+\end{frame}
+
+%%% side-by-side figures
+\begin{frame}{side-by-side figures}
+\begin{minipage}{0.50\textwidth}
+\begin{center}
+\includegraphics[scale=0.50]{}
+\end{center}
+Text below 1
+\end{minipage}~~~~~
+\begin{minipage}{0.50\textwidth}
+\begin{center}
+\includegraphics[scale=0.50]{}
+\end{center}
+Text below 2
+\end{minipage}
+\end{frame}
+
+%%% text with figure on side
+\begin{frame}{text with figure}
+
+\begin{minipage}[t]{0.53\textwidth}
+Words over here
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{0pt}
+\includegraphics[scale=0.50]{}
+\end{minipage}
 \end{frame}
 
 \end{document}

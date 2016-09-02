@@ -47,6 +47,22 @@
     \textbf{\large{#1}}}\vspace{0.15cm}\newline}
 
 
+\newcommand{\startappendix}{%
+    \setbeamertemplate{footline}{%
+        \hbox{%
+        \vspace{0.5in}%
+        \begin{beamercolorbox}[ht=2mm, rightskip=.5cm]{footlinecolor}%
+        \hfill A\the\value{framenumberappendix}\phantom{/\inserttotalframenumber}
+        \end{beamercolorbox}}}
+    \newcounter{framenumberappendix}
+    \setcounter{framenumberappendix}{0}
+    }
+
+%%% Lines to be added at the end of an appendix frame (need to deal with this)
+% \addtocounter{framenumberappendix}{1}
+% \addtocounter{framenumber}{-1}
+
+
 %slide colors
 \pagecolor{colorheader!60}
 
